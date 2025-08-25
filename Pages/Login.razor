@@ -1,0 +1,32 @@
+@page "/"
+@layout AccountLayout
+@inject AuthService authService
+@inject NavigationManager nav
+
+
+
+<div class="card">
+<img src="images/MinsuLogo.png">
+<h1>Mindoro State University</h1>
+<input type="text" placeholder="Email" @bind="loginDTO.email">
+<input type="password" placeholder="Password" @bind="loginDTO.password">
+<button type="button" @onclick="login">Sign in</button>
+</div>
+
+
+@code{
+    LoginDTO loginDTO = new();
+
+    public async Task login(){
+        var token = await authService.login(loginDTO);
+        if(!string.IsNullOrWhiteSpace(token)){
+            nav.NavigateTo("/Tama");
+        } 
+        else{
+            nav.NavigateTo("/Mali");
+        }
+    }
+    
+}
+
+
