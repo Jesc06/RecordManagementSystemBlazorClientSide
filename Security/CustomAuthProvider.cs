@@ -35,13 +35,43 @@ namespace RecordManagementSystemClientSide.Security
         }
 
 
+        public void NotifyUserAuthentication(string token)
+        {
+            var claims = ParseClaimsFromJwt(token);
+            var authenticatedUser = new ClaimsPrincipal(new ClaimsIdentity(claims, "Jwt"));
+            var authState = Task.FromResult(new AuthenticationState(authenticatedUser));
+            NotifyAuthenticationStateChanged(authState);
+        }
+
+        public void NotifyLogout()
+        {
+            var authState = Task.FromResult(new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())));
+            NotifyAuthenticationStateChanged(authState);
+        }
+
         private IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
         {
             var payload = jwt.Split('.')[1];
             var jsonBytes = ParseBase64WithoutPadding(payload);
-            var keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonBytes);
-            return keyValuePairs.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString()));
+
+            var claims = new List<Claim>();
+            using var doc = JsonDocument.Parse(jsonBytes);
+            foreach (var kvp in doc.RootElement.EnumerateObject())
+            {
+                // Kung number, gawin string representation
+                if (kvp.Value.ValueKind == JsonValueKind.Number)
+                {
+                    claims.Add(new Claim(kvp.Name, kvp.Value.GetRawText()));
+                }
+                else
+                {
+                    claims.Add(new Claim(kvp.Name, kvp.Value.ToString()));
+                }
+            }
+
+            return claims;
         }
+
 
 
         private byte[] ParseBase64WithoutPadding(string base64)

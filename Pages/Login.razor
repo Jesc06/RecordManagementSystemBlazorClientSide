@@ -2,30 +2,53 @@
 @layout AccountLayout
 @inject AuthService authService
 @inject NavigationManager nav
+@inject AuthenticationStateProvider authProvider
+@using System.ComponentModel.DataAnnotations
 
 
 
-<div class="card">
-<img src="images/MinsuLogo.png">
-<h1>Mindoro State University</h1>
-<input type="text" placeholder="Email" @bind="loginDTO.email">
-<input type="password" placeholder="Password" @bind="loginDTO.password">
-<button type="button" @onclick="login">Sign in</button>
-</div>
+<EditForm Model="@loginDTO" OnValidSubmit="SuccessllyValid">
+      <DataAnnotationsValidator />
+      <ValidationSummary />
+
+    <div class="card">
+        <img src="images/MinsuLogo.png">
+        <h1>Mindoro State University</h1>
+        <input type="text" placeholder="Email" @bind="loginDTO.email">
+        <ValidationMessage For="@(() => loginDTO.email)"/>
+
+        <input type="password" placeholder="Password" @bind="loginDTO.password">
+        <ValidationMessage For="@(() => loginDTO.password)"/>
+        
+        <button type="submit">Sign in</button>
+    </div>
+</EditForm>
 
 
 @code{
     LoginDTO loginDTO = new();
 
-    public async Task login(){
+    protected override async Task OnInitializedAsync(){
+        var auth = await authProvider.GetAuthenticationStateAsync();
+        if(auth.User.Identity?.IsAuthenticated == true){
+            nav.NavigateTo("/Tama");
+        }
+    }
+    
+    public async Task SuccessllyValid(){
         var token = await authService.login(loginDTO);
         if(!string.IsNullOrWhiteSpace(token)){
+            ((CustomAuthProvider)authProvider).NotifyUserAuthentication(token);
             nav.NavigateTo("/Tama");
         } 
         else{
             nav.NavigateTo("/Mali");
         }
     }
+
+
+
+    
     
 }
 

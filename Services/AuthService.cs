@@ -38,6 +38,13 @@ namespace RecordManagementSystemClientSide.Services
             return null;
         }
 
+        public async Task Logout()
+        {
+            var http = _httpClientFactory.CreateClient("API");
+            await http.PostAsync("api/Account/Logout", null);
+            await _jsRuntime.InvokeVoidAsync("localStorage.removeItem", "authToken");
+        }
+
 
     }
 }

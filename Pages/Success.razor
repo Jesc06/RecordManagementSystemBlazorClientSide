@@ -1,3 +1,18 @@
 @page "/Tama"
 
+@inject AuthService authService
+@inject NavigationManager nav
+@inject AuthenticationStateProvider authProvider
+
+
+
+<button type="button" @onclick="logout">Logout</button>
 <h1>Tama</h1>
+
+@code{
+  public async Task logout(){
+        await authService.Logout();
+        ((CustomAuthProvider)authProvider).NotifyLogout();
+        nav.NavigateTo("/");
+    }
+}
