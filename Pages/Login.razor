@@ -5,21 +5,19 @@
 @inject AuthenticationStateProvider authProvider
 @using System.ComponentModel.DataAnnotations
 
-
+<link rel="stylesheet" href="/css/Acc.css" />
 
 <EditForm Model="@loginDTO" OnValidSubmit="SuccessllyValid">
       <DataAnnotationsValidator />
-      <ValidationSummary />
-
     <div class="card">
         <img src="images/MinsuLogo.png">
         <h1>Mindoro State University</h1>
-        <input type="text" placeholder="Email" @bind="loginDTO.email">
+        <InputText placeholder="Email" @bind-Value="loginDTO.email" class="input"/>
         <ValidationMessage For="@(() => loginDTO.email)"/>
 
-        <input type="password" placeholder="Password" @bind="loginDTO.password">
-        <ValidationMessage For="@(() => loginDTO.password)"/>
-        
+        <InputText placeholder="Password" @bind-Value="loginDTO.password" class="input"/>
+        <ValidationMessage For="@(() => loginDTO.password)" class="validation-message"/>
+    
         <button type="submit">Sign in</button>
     </div>
 </EditForm>

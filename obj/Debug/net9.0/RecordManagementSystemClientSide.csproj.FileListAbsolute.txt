@@ -826,7 +826,6 @@ C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\webcil\ne
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\webcil\System.Private.CoreLib.wasm
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\webcil\RecordManagementSystemClientSide.wasm
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\scopedcss\Layout\AccountLayout.razor.rz.scp.css
-C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\scopedcss\Pages\Login.razor.rz.scp.css
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\scopedcss\bundle\RecordManagementSystemClientSide.styles.css
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\scopedcss\projectbundle\RecordManagementSystemClientSide.bundle.scp.css
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\blazor.build.boot-extension.json
@@ -879,8 +878,6 @@ C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compresse
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\iev9005lz4-7n7cqb5u0c.gz
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\1uzhvmlsp9-iag0ou56lh.gz
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\e3l7gctyfq-md9yvkcqlf.gz
-C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\5fn16d2gly-bm6nxq5ugx.gz
-C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\fbzh6s43qt-bm6nxq5ugx.gz
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\lpjj2npizi-tnyc7xpluy.gz
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\7a0d3hnsow-t32damlu4o.gz
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\z1x2n9xmkr-59e3gw4tnq.gz
@@ -1095,10 +1092,13 @@ C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\RecordMan
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\refint\RecordManagementSystemClientSide.dll
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\RecordManagementSystemClientSide.pdb
 C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\ref\RecordManagementSystemClientSide.dll
-C:\Users\escar\Music\RecordManagementSystemClientSide\bin\Debug\net9.0\wwwroot\_framework\RecordManagementSystemClientSide.hlw0v9a6dx.wasm
-C:\Users\escar\Music\RecordManagementSystemClientSide\bin\Debug\net9.0\wwwroot\_framework\RecordManagementSystemClientSide.z3r61uemoz.pdb
-C:\Users\escar\Music\RecordManagementSystemClientSide\bin\Debug\net9.0\wwwroot\_framework\RecordManagementSystemClientSide.hlw0v9a6dx.wasm.gz
-C:\Users\escar\Music\RecordManagementSystemClientSide\bin\Debug\net9.0\wwwroot\_framework\RecordManagementSystemClientSide.z3r61uemoz.pdb.gz
-C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\dml50pltdl-hlw0v9a6dx.gz
-C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\3kvcyx2d42-z3r61uemoz.gz
-C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\ar9k6atk4f-3blgeo03nh.gz
+C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\5fn16d2gly-06zqe536z1.gz
+C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\fbzh6s43qt-06zqe536z1.gz
+C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\h1ilw4xbwj-g4b3cy8anx.gz
+C:\Users\escar\Music\RecordManagementSystemClientSide\bin\Debug\net9.0\wwwroot\_framework\RecordManagementSystemClientSide.9krbpjdy78.wasm
+C:\Users\escar\Music\RecordManagementSystemClientSide\bin\Debug\net9.0\wwwroot\_framework\RecordManagementSystemClientSide.rfe53gvc2l.pdb
+C:\Users\escar\Music\RecordManagementSystemClientSide\bin\Debug\net9.0\wwwroot\_framework\RecordManagementSystemClientSide.9krbpjdy78.wasm.gz
+C:\Users\escar\Music\RecordManagementSystemClientSide\bin\Debug\net9.0\wwwroot\_framework\RecordManagementSystemClientSide.rfe53gvc2l.pdb.gz
+C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\dml50pltdl-9krbpjdy78.gz
+C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\3kvcyx2d42-rfe53gvc2l.gz
+C:\Users\escar\Music\RecordManagementSystemClientSide\obj\Debug\net9.0\compressed\ar9k6atk4f-um2xs4telg.gz

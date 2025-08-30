@@ -8,8 +8,8 @@ namespace RecordManagementSystemClientSide.DTO
 {
     public class LoginDTO
     {
-        [EmailAddress(ErrorMessage = "Incorrect")]
-        public string email { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid email format")]
+        public string email { get; set; } 
         
         [Required(ErrorMessage = "Please input your password")]
         public string password { get; set; }
