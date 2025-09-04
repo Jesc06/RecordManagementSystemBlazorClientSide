@@ -25,18 +25,53 @@ namespace RecordManagementSystemClientSide.Services
         public async Task<string> login(LoginDTO loginDto)
         {
             var http = _httpClientFactory.CreateClient("API");
-            var response = await http.PostAsJsonAsync("api/Account/Login", loginDto);
+            var response = await http.PostAsJsonAsync("api/LoginRegister/Login", loginDto);
 
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<LoginResult>();
+                var result = await response.Content.ReadFromJsonAsync<JwtToken>();
 
                 await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "authToken", result.Token);
+                await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "refreshToken", result.RefreshToken);
+                await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "tokenExpiry", DateTime.UtcNow.AddSeconds(result.ExpiresIn).ToString("o"));
+
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
                 return result.Token;
             }
             return null;
         }
+
+
+        
+        public async Task EnsureValidToken()
+        {
+            var expiryStr = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", "refreshToken");
+            if (!DateTime.TryParse(expiryStr, out var expiry)) return;
+            if (DateTime.UtcNow >= expiry)
+            {
+                var refreshToken = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", "refreshToken");
+                if (string.IsNullOrWhiteSpace(refreshToken)) return;
+
+                var http = _httpClientFactory.CreateClient("API");
+                var refreshResponse = await http.PostAsJsonAsync("api/LoginRegister/Refresh Token", new { RefreshToken = refreshToken });
+
+                if (refreshResponse.IsSuccessStatusCode)
+                {
+                    var result = await refreshResponse.Content.ReadFromJsonAsync<JwtToken>();
+                    await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "authToken", result.Token);
+                    await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "refreshToken", result.RefreshToken);
+                    await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "tokenExpiry", DateTime.UtcNow.AddSeconds(result.ExpiresIn).ToString("o"));
+                    
+                    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
+                }
+                else
+                {
+                    await Logout();
+                }
+
+            }
+        }
+        
 
         public async Task Logout()
         {

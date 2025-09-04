@@ -5,7 +5,8 @@
 @inject AuthenticationStateProvider authProvider
 @using System.ComponentModel.DataAnnotations
 
-<link rel="stylesheet" href="/css/Acc.css" />
+<link rel="stylesheet" href="/css/Account.css" />
+
 
 <EditForm Model="@loginDTO" OnValidSubmit="SuccessllyValid">
       <DataAnnotationsValidator />
@@ -22,11 +23,11 @@
     </div>
 </EditForm>
 
-
 @code{
     LoginDTO loginDTO = new();
 
     protected override async Task OnInitializedAsync(){
+        await authService.EnsureValidToken();
         var auth = await authProvider.GetAuthenticationStateAsync();
         if(auth.User.Identity?.IsAuthenticated == true){
             nav.NavigateTo("/Tama");
