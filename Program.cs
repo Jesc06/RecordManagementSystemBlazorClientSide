@@ -21,4 +21,6 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 builder.Services.AddAuthorizationCore();
 
+
+
 await builder.Build().RunAsync();

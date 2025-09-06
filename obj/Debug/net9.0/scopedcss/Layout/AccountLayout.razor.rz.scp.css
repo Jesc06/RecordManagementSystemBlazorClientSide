@@ -1,9 +1,10 @@
-.body[b-kzg18kdsn8]{
+.body[b-kzg18kdsn8] {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh; /* siguradong at least 1 screen yung height, pero puwede pang lumaki */
     background-image: url('images/blur.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* fixed background */
     display: flex;
     justify-content: center;
     align-items: center;

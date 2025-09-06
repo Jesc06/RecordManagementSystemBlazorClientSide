@@ -42,7 +42,6 @@ namespace RecordManagementSystemClientSide.Services
         }
 
 
-        
         public async Task EnsureValidToken()
         {
             var expiryStr = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", "refreshToken");

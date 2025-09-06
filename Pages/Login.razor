@@ -7,7 +7,6 @@
 
 <link rel="stylesheet" href="/css/Account.css" />
 
-
 <EditForm Model="@loginDTO" OnValidSubmit="SuccessllyValid">
       <DataAnnotationsValidator />
     <div class="card">
@@ -20,6 +19,11 @@
         <ValidationMessage For="@(() => loginDTO.password)" class="validation-message"/>
     
         <button type="submit">Sign in</button>
+        <div class="register">
+            <label>You don’t have an account?</label>
+            <a href="/register">Sign up</a>
+        </div>
+        
     </div>
 </EditForm>
 
@@ -44,11 +48,7 @@
             nav.NavigateTo("/Mali");
         }
     }
-
-
-
-    
-    
+ 
 }
 
 

@@ -1,6 +1,6 @@
 .card{
     width: 370px;
-    height: 520px;
+    min-height: 540px;
     background-color: rgb(255,255,255,0.3);
     border: none;
     
@@ -61,4 +61,15 @@ button{
 .input.invalid {
     border: 2px solid #fd8469;
     outline: none;
+}
+.register{
+    color:  #32325D;
+    margin-left: 86px;
+    margin-top: 85px;
+    width: 200px;
+    text-align: center;
+}
+
+.register a{
+    text-decoration: none;
 }
