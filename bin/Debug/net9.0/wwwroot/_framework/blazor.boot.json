@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "RecordManagementSystemClientSide",
   "resources": {
-    "hash": "sha256-Bv/LD5xmSeVc2UFhuEEnpmAIzcyW4PHcF7Sj2RsTGNU=",
+    "hash": "sha256-p4IPBxFELfK0B/0YlmzKjn200EVWo9DU57ORJP2KzCg=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Authorization.tnyc7xpluy.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.t32damlu4o.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -209,8 +209,8 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "RecordManagementSystemClientSide.oxgn808hax.wasm": "RecordManagementSystemClientSide.wasm",
-      "RecordManagementSystemClientSide.1r01g3kemu.pdb": "RecordManagementSystemClientSide.pdb"
+      "RecordManagementSystemClientSide.4pygsiey7s.wasm": "RecordManagementSystemClientSide.wasm",
+      "RecordManagementSystemClientSide.2v48uxlsn9.pdb": "RecordManagementSystemClientSide.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.uhsveqo9bs.js": "sha256-/ifJokfQvXKw1hEziCkYR9SOJIKSdGG/UKw5gbLWrj0="
@@ -428,10 +428,10 @@
       "WindowsBase.pe1q66fox7.wasm": "sha256-X+jubl681x6U1UjhhKVz+cjOvMv1wDBWIyyFenqJnPc=",
       "mscorlib.ypkr78tz1c.wasm": "sha256-Wkc7KpMw/bTWNoLCRv9T8olIOmCpEiJSeUZsUQEnwrA=",
       "netstandard.ifx8vojh9u.wasm": "sha256-PqpRCbO73PFsE8ik5zmAuG1kKax3c7bGhjOOeuiUcyY=",
-      "RecordManagementSystemClientSide.oxgn808hax.wasm": "sha256-hIKJIOWxDBm0C6CQHJa+mxViojNnJ4WMUECnLzoIvhE="
+      "RecordManagementSystemClientSide.4pygsiey7s.wasm": "sha256-WGiooPYnoSHqxRFaAyKYe8nE4/avALsDrxZjwbTvCfI="
     },
     "pdb": {
-      "RecordManagementSystemClientSide.1r01g3kemu.pdb": "sha256-84liinmGjAXHfVbF1OPZwx+fMRKx6ZlTgqLtAHQS4gU="
+      "RecordManagementSystemClientSide.2v48uxlsn9.pdb": "sha256-YuPTuU3p9IyET7/evuxdxh/QykvKDBUiQnMwObcdlTY="
     }
   },
   "cacheBootResources": true,

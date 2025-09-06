@@ -5,11 +5,12 @@
     align-items: center;
     padding: 50px 20px;
     min-height: 100vh;
+   
 }
 
 /* Card */
 .form-card {
-     background-color: rgb(255,255,255,0.90);
+    background-color: rgb(255,255,255,0.90);
     width: 100%;
     max-width: 700px;
     padding: 40px 30px;
@@ -39,21 +40,22 @@
     margin-bottom: 30px;
 }
 
-
 .form-card .subtitle2 {
     font-size: 16px;
     color: #32325D;
     margin-bottom: 30px;
     margin-top: 35px;
 }
+
 .form-card a{
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -20px;
+    color: #4caf50;
+    font-weight: 500;
 }
-
 
 /* Grid Layout */
 .form-grid {
@@ -70,7 +72,7 @@
 .input-group input,
 .input-group select {
     width: 100%;
-    padding: 12px 40px 12px 15px;
+    padding: 14px 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 14px;
@@ -84,22 +86,29 @@
     border-color: #4caf50;
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
     outline: none;
-    background-color: rgb(255,255,255,0.80);
+    background-color: rgb(255,255,255,0.90);
 }
 
-/* Icon inside input */
-.input-group i {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #aaa;
-    transition: color 0.3s ease;
+/* Remove default number arrows */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.input-group input:focus + i,
-.input-group select:focus + i {
-    color: #4caf50;
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Custom select arrow */
+.input-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8"><polygon points="0,0 14,0 7,8" fill="%23999"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 8px;
 }
 
 /* Button */
@@ -109,17 +118,17 @@
     width: 100%;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(90deg, #4caf50 0%, #81c784 100%);
+    background: linear-gradient(90deg, #4caf50 0%, #ff9800 100%);
     color: white;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s ease;
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
 }
 
 .btn-submit:hover {
-    background: linear-gradient(90deg, #45a049 0%, #66bb6a 100%);
-    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+    background: linear-gradient(90deg, #43a047 0%, #fb8c00 100%);
+    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
 }
 
 /* MEDIA QUERIES FOR MOBILE DEVICES */
@@ -149,7 +158,7 @@
 
     .input-group input,
     .input-group select {
-        padding: 10px 35px 10px 12px;
+        padding: 12px 12px;
         font-size: 13px;
     }
 
