@@ -53,7 +53,7 @@ namespace RecordManagementSystemClientSide.Security
         {
             var payload = jwt.Split('.')[1];
             var jsonBytes = ParseBase64WithoutPadding(payload);
-
+                
             var claims = new List<Claim>();
             using var doc = JsonDocument.Parse(jsonBytes);
             foreach (var kvp in doc.RootElement.EnumerateObject())
@@ -68,10 +68,8 @@ namespace RecordManagementSystemClientSide.Security
                     claims.Add(new Claim(kvp.Name, kvp.Value.ToString()));
                 }
             }
-
             return claims;
         }
-
 
 
         private byte[] ParseBase64WithoutPadding(string base64)

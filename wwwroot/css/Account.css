@@ -1,76 +1,142 @@
-.card{
+.card {
     width: 370px;
     min-height: 540px;
-    background-color: rgb(255,255,255,0.3);
+    background: rgba(255,255,255,0.55);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(44,62,80,0.15);
     border: none;
-    
-}
-.card img{
-    width: 125px;
-    height: 125px;
-    position: absolute;
-    top:0;
-    top:25px;
-    left: 124px;
-}
-.card input{
-    border: none;
-    width: 220px;
-    height: 40px;
-    border-radius: 4px;
-    padding-left: 20px;
-    margin: 9px;
-}
-.card input:focus{
-    outline: none;
-}
-.card button{
-    width: 220px;
-    height: 50px;
-    border: none;
-    border-radius: 5px;
-    background-color: #00A4B5;
-    color: white;
-    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 32px;
 }
 
-.card input,button,.validation-message{
-    position: relative;
-    top:60px;
-    left: 68px;
+.card img {
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+    object-fit: cover;
+    background: #f8fafc;
 }
-.card h1{
+
+.card h1 {
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
     color: #32325D;
     line-height: 48px;
-    margin-top: 90px;
-    font-size: 2.2rem;
+    margin-top: 160px;
+    font-size: 2.1rem;
+    letter-spacing: 1px;
     position: relative;
-    top:60px;
-}
-button{
-    margin-left: 10px;
 }
 
-.validation-message{
-    color: #eb5432;
-    margin-left: 13px;
+.card input {
+    border: 1.5px solid #e0e0e0;
+    width: 220px;
+    height: 44px;
+    border-radius: 8px;
+    padding-left: 18px;
+    margin: 12px 0;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.70);
+    box-shadow: 0 2px 8px rgba(44,62,80,0.05);
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card input:focus {
+    outline: none;
+    border-color: #00A4B5;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 8px rgba(0,164,181,0.15);
 }
 
 .input.invalid {
     border: 2px solid #fd8469;
     outline: none;
 }
-.register{
-    color:  #32325D;
-    margin-left: 86px;
-    margin-top: 85px;
-    width: 200px;
-    text-align: center;
+
+.card button {
+    width: 220px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #00A4B5 0%, #ff9800 100%);
+    color: white;
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    box-shadow: 0 4px 16px rgba(0,164,181,0.10);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.register a{
+.card button:hover {
+    background: linear-gradient(90deg, #0097a7 0%, #fb8c00 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+.validation-message {
+    color: #eb5432;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 220px;
+    text-align: left;
+    font-size: 0.97rem;
+    position: relative;
+    display: block;
+}
+
+.register {
+    color: #32325D;
+    margin: 38px auto 0 auto;
+    width: 220px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.register a {
     text-decoration: none;
-    color:darkblue;
+    color: #00A4B5;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.register a:hover {
+    color: #ff9800;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .card {
+        width: 98vw;
+        min-height: 480px;
+        padding-bottom: 18px;
+    }
+    .card img {
+        width: 90px;
+        height: 90px;
+        top: 18px;
+    }
+    .card h1 {
+        font-size: 1.4rem;
+        margin-top: 120px;
+    }
+    .card input,
+    .card button,
+    .validation-message,
+    .register {
+        width: 90vw;
+        max-width: 260px;
+    }
 }
