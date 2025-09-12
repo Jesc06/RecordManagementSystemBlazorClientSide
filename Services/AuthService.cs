@@ -60,7 +60,7 @@ namespace RecordManagementSystemClientSide.Services
                     await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "authToken", result.Token);
                     await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "refreshToken", result.RefreshToken);
                     await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "tokenExpiry", DateTime.UtcNow.AddSeconds(result.ExpiresIn).ToString("o"));
-                    
+
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
                 }
                 else
@@ -70,13 +70,14 @@ namespace RecordManagementSystemClientSide.Services
 
             }
         }
-        
+
         public async Task Logout()
         {
             var http = _httpClientFactory.CreateClient("API");
             await http.PostAsync("api/Account/Logout", null);
             await _jsRuntime.InvokeVoidAsync("localStorage.removeItem", "authToken");
         }
+        
 
     }
 }

@@ -1,13 +1,15 @@
-@page "/s"
+@page "/"
 
 @layout AccountLayout;
 
 <link rel="stylesheet" href="/css/OTP.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <div class="container">
-    <h3>Two-Factor authentication</h3>
-    <input type="text" placeholder="Enter OTP"/ >        
+    <div style="text-align:center; margin-bottom: 10px;">
+        <i class="fa-solid fa-shield-halved fa-2x" style="color:#ff9800; background:rgba(255,255,255,0.8); border-radius:50%; padding:10px; margin-right:8px; box-shadow:0 2px 8px rgba(44,62,80,0.10);"></i>
+    </div>
+    <h3>Two-Factor Authentication</h3>
+    <input type="text" placeholder="Enter OTP"/>        
     <button>Verify OTP</button>         
 </div>
-
-
