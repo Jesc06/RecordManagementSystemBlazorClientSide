@@ -53,6 +53,19 @@ namespace RecordManagementSystemClientSide.Services
             return false;
         }
 
+
+        public async Task<bool> OTPVerification(VerifyOtpDTO verifyOtpDTO)
+        {
+            var http = _httpClientFactory.CreateClient("API");
+            var response = await http.PostAsJsonAsync("api/LoginRegister/VerifyOTP", verifyOtpDTO);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         public async Task EnsureValidToken()
         {
             var expiryStr = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", "refreshToken");
