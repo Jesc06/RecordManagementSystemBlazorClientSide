@@ -1,13 +1,22 @@
+body {
+    overflow-x: auto;
+}
+
 .card {
     width: 370px;
     min-height: 540px;
-    background: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.70);
     border-radius: 18px;
     box-shadow: 0 8px 32px rgba(44,62,80,0.15);
     border: none;
     position: relative;
     overflow: hidden;
     padding-bottom: 32px;
+    margin: 32px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .card img {
@@ -32,6 +41,8 @@
     font-size: 2.1rem;
     letter-spacing: 1px;
     position: relative;
+    width: 100%;
+    word-break: break-word;
 }
 
 .card input {
@@ -48,6 +59,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
 .card input:focus {
@@ -78,6 +90,7 @@
     box-shadow: 0 4px 16px rgba(0,164,181,0.10);
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
+    box-sizing: border-box;
 }
 
 .card button:hover {
@@ -95,6 +108,8 @@
     font-size: 0.97rem;
     position: relative;
     display: block;
+    word-break: break-word;
+    box-sizing: border-box;
 }
 
 .register {
@@ -103,6 +118,7 @@
     width: 220px;
     text-align: center;
     font-size: 1rem;
+    box-sizing: border-box;
 }
 
 .register a {
@@ -116,12 +132,14 @@
     color: #ff9800;
 }
 
-/* Responsive */
+/* Responsive: Only adjust font-size and image size, not card width */
 @media (max-width: 500px) {
     .card {
-        width: 98vw;
+        /* width: 370px; fixed width */
+        width: 320px;
         min-height: 480px;
         padding-bottom: 18px;
+        margin: 16px auto;
     }
     .card img {
         width: 90px;
@@ -131,12 +149,19 @@
     .card h1 {
         font-size: 1.4rem;
         margin-top: 120px;
+        width: 180px;
+        line-height: 35px;
     }
-    .card input,
-    .card button,
-    .validation-message,
-    .register {
-        width: 90vw;
-        max-width: 260px;
+}
+
+@media (max-width: 350px) {
+    .card img {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+    }
+    .card h1 {
+        font-size: 1.1rem;
+        margin-top: 80px;
     }
 }

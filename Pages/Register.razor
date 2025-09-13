@@ -1,8 +1,20 @@
 @page "/register"
 @layout AccountLayout
+@inject AuthService _authService
 @inject NavigationManager nav
 
 <link rel="stylesheet" href="/css/Register.css" />
+
+@if (isLoading)
+{
+    <div class="loading-overlay">
+        <div class="loading-content">
+            <span class="spinner"></span>
+            <span class="loading-text">Signing up...</span>
+        </div>
+    </div>
+}
+
 
 <div class="container">
     <div class="form-card">
@@ -11,19 +23,20 @@
 
         <div class="form-grid">
             <!-- 3-per-row inputs -->
-            <div class="input-group"><input type="text" placeholder="Firstname"></div>
-            <div class="input-group"><input type="text" placeholder="Middlename"></div>
-            <div class="input-group"><input type="text" placeholder="Lastname"></div>
+            <div class="input-group"><input type="text" placeholder="Firstname" @bind="@registerAccountDTO.FirstName"></div>
+            <div class="input-group"><input type="text" placeholder="Middlename" @bind = "@registerAccountDTO.Middlename"></div>
+            <div class="input-group"><input type="text" placeholder="Lastname" @bind="@registerAccountDTO.LastName"></div>
 
-            <div class="input-group"><select>
+            <div class="input-group"><select @bind="@registerAccountDTO.Gender">
                 <option value="">Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="LGBTQ">LGBTQ</option>
-            </select></div>
+            </select>
+            </div>
 
-            <div class="input-group"><input type="number" min="1950" max="2025" placeholder="Year of Birth"></div>
-            <div class="input-group"><select>
+            <div class="input-group"><input type="number" min="1950" max="2025" placeholder="Year of Birth" @bind="@registerAccountDTO.YearOfBirth"></div>
+            <div class="input-group"><select @bind="@registerAccountDTO.MonthOfBirth">
                 <option value="">Month of Birth</option>
                 <option value="1">January</option>
                 <option value="2">February</option>
@@ -38,14 +51,14 @@
                 <option value="11">November</option>
                 <option value="12">December</option>
             </select></div>
-            <div class="input-group"><input type="number" min="1" max="31" placeholder="Date of Birth"></div>
+            <div class="input-group"><input type="number" min="1" max="31" placeholder="Date of Birth" @bind="@registerAccountDTO.DateOfBirth"></div>
 
             <!-- Solo/full-width inputs -->
-            <div class="input-group"><input type="number" placeholder="Mobile Number"></div>
-            <div class="input-group full-width"><input type="text" placeholder="Home Address"></div>
+            <div class="input-group"><input type="number" placeholder="Mobile Number" @bind="@registerAccountDTO.MobileNumber"></div>
+            <div class="input-group full-width"><input type="text" placeholder="Home Address" @bind="@registerAccountDTO.HomeAddress"></div>
             
 
-            <div class="input-group"><select>
+            <div class="input-group"><select @bind="@registerAccountDTO.Program">
                 <option value="">Program</option>
                 <option value="BSIT">BSIT</option>
                 <option value="BSED">BSED</option>
@@ -53,7 +66,7 @@
                 <option value="BSCPE">BSCPE</option>
                 <option value="BSCRIM">BSCRIM</option>
             </select></div>
-            <div class="input-group"><select>
+            <div class="input-group"><select @bind="@registerAccountDTO.YearLevel">
                 <option value="">Year Level</option>
                 <option value="1">First Year</option>
                 <option value="2">Second Year</option>
@@ -61,15 +74,49 @@
                 <option value="4">Fourth Year</option>
             </select></div>
 
-            <div class="input-group full-width"><input type="text" placeholder="Student ID"></div>
-            <div class="input-group full-width"><input type="email" placeholder="Email"></div>
-            <div class="input-group full-width"><input type="password" placeholder="Password"></div>
+            <div class="input-group full-width"><input type="text" placeholder="Student ID" @bind="@registerAccountDTO.StudentID"></div>
+            <div class="input-group full-width"><input type="email" placeholder="Email" @bind="@registerAccountDTO.Email"></div>
+            <div class="input-group full-width"><input type="password" placeholder="Password" @bind="@registerAccountDTO.Password"></div>
         </div>
 
-        <button class="btn-submit">Sign up</button>
+        <button class="btn-submit" @onclick="RegisterAcc" disabled="@isLoading">Sign up</button>
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="validation-message">@errorMessage</div>
+        }
+
         <p class="subtitle2">Already have an account?</p>
         <a href="/">Sign in</a>
     </div>
 </div>
 
 
+
+@code{
+    RegisterAccountDTO registerAccountDTO = new();
+    bool isLoading = false;
+    string errorMessage;
+
+    public async Task RegisterAcc()
+    {
+        isLoading = true;
+        errorMessage = null;
+        StateHasChanged();
+
+        var isRegistered = await _authService.RegisterAccount(registerAccountDTO);
+
+        if (isRegistered)
+        {
+            isLoading = false; // <--- Hide overlay before navigating
+            StateHasChanged();
+            nav.NavigateTo("/OTPVerification");
+        }
+        else
+        {
+            isLoading = false;
+            errorMessage = "Registration failed. Please check your details.";
+            StateHasChanged();
+        }
+    }
+}

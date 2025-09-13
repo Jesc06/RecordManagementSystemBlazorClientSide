@@ -42,6 +42,17 @@ namespace RecordManagementSystemClientSide.Services
         }
 
 
+        public async Task<bool> RegisterAccount(RegisterAccountDTO registerAccountDTO)
+        {
+            var http = _httpClientFactory.CreateClient("API");
+            var response = await http.PostAsJsonAsync("api/LoginRegister/AddStudentAccount", registerAccountDTO);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public async Task EnsureValidToken()
         {
             var expiryStr = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", "refreshToken");
