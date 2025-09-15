@@ -138,6 +138,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.WebUtilities/9.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Net.Http.Headers": "9.0.9"
+        },
+        "compile": {
+          "lib/net9.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration/9.0.8": {
         "type": "package",
         "dependencies": {
@@ -512,7 +528,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Primitives/9.0.8": {
+      "Microsoft.Extensions.Primitives/9.0.9": {
         "type": "package",
         "compile": {
           "lib/net9.0/Microsoft.Extensions.Primitives.dll": {
@@ -553,6 +569,22 @@
         },
         "runtime": {
           "lib/net9.0/Microsoft.JSInterop.WebAssembly.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Net.Http.Headers/9.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "9.0.9"
+        },
+        "compile": {
+          "lib/net9.0/Microsoft.Net.Http.Headers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Net.Http.Headers.dll": {
             "related": ".xml"
           }
         }
@@ -749,6 +781,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.WebUtilities/9.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Net.Http.Headers": "9.0.9"
+        },
+        "compile": {
+          "lib/net9.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration/9.0.8": {
         "type": "package",
         "dependencies": {
@@ -1123,7 +1171,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Primitives/9.0.8": {
+      "Microsoft.Extensions.Primitives/9.0.9": {
         "type": "package",
         "compile": {
           "lib/net9.0/Microsoft.Extensions.Primitives.dll": {
@@ -1164,6 +1212,22 @@
         },
         "runtime": {
           "lib/net9.0/Microsoft.JSInterop.WebAssembly.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Net.Http.Headers/9.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "9.0.9"
+        },
+        "compile": {
+          "lib/net9.0/Microsoft.Net.Http.Headers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Net.Http.Headers.dll": {
             "related": ".xml"
           }
         }
@@ -1522,6 +1586,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
         "microsoft.aspnetcore.metadata.9.0.8.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.WebUtilities/9.0.9": {
+      "sha512": "nRywCuHOoKEqrdWDsQUaaA73nPSSMMu5RvkvidaE5FyRGFTpOh+f6uZkixUsYennTCwsOiVbijeoDam1PtRJaQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.webutilities/9.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net9.0/Microsoft.AspNetCore.WebUtilities.dll",
+        "lib/net9.0/Microsoft.AspNetCore.WebUtilities.xml",
+        "microsoft.aspnetcore.webutilities.9.0.9.nupkg.sha512",
+        "microsoft.aspnetcore.webutilities.nuspec"
       ]
     },
     "Microsoft.Extensions.Configuration/9.0.8": {
@@ -2115,10 +2194,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Primitives/9.0.8": {
-      "sha512": "tizSIOEsIgSNSSh+hKeUVPK7xmTIjR8s+mJWOu1KXV3htvNQiPMFRMO17OdI1y/4ZApdBVk49u/08QGC9yvLug==",
+    "Microsoft.Extensions.Primitives/9.0.9": {
+      "sha512": "z4pyMePOrl733ltTowbN565PxBw1oAr8IHmIXNDiDqd22nFpYltX9KhrNC/qBWAG1/Zx5MHX+cOYhWJQYCO/iw==",
       "type": "package",
-      "path": "microsoft.extensions.primitives/9.0.8",
+      "path": "microsoft.extensions.primitives/9.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2138,7 +2217,7 @@
         "lib/net9.0/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.9.0.8.nupkg.sha512",
+        "microsoft.extensions.primitives.9.0.9.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -2171,6 +2250,21 @@
         "lib/net9.0/Microsoft.JSInterop.WebAssembly.xml",
         "microsoft.jsinterop.webassembly.9.0.8.nupkg.sha512",
         "microsoft.jsinterop.webassembly.nuspec"
+      ]
+    },
+    "Microsoft.Net.Http.Headers/9.0.9": {
+      "sha512": "XEQbq25AU2r4WzYpwhyMQZ9PSOaLTkNtfd4DeJ4x5Bsk9bHUyyZhgutki/cyeY+itARWiLyaM91TsKUeFjBb9w==",
+      "type": "package",
+      "path": "microsoft.net.http.headers/9.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net9.0/Microsoft.Net.Http.Headers.dll",
+        "lib/net9.0/Microsoft.Net.Http.Headers.xml",
+        "microsoft.net.http.headers.9.0.9.nupkg.sha512",
+        "microsoft.net.http.headers.nuspec"
       ]
     },
     "Microsoft.NET.ILLink.Tasks/9.0.5": {
@@ -2327,6 +2421,7 @@
       "Microsoft.AspNetCore.Components.Authorization >= 9.0.8",
       "Microsoft.AspNetCore.Components.WebAssembly >= 9.0.8",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 9.0.5",
+      "Microsoft.AspNetCore.WebUtilities >= 9.0.9",
       "Microsoft.Extensions.Http >= 9.0.8",
       "Microsoft.NET.ILLink.Tasks >= 9.0.5",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.5",
@@ -2396,6 +2491,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[9.0.5, )"
+          },
+          "Microsoft.AspNetCore.WebUtilities": {
+            "target": "Package",
+            "version": "[9.0.9, )"
           },
           "Microsoft.Extensions.Http": {
             "target": "Package",

@@ -8,6 +8,10 @@ namespace RecordManagementSystemClientSide.DTO
 {
     public class RegisterAccountDTO
     {
+
+        public string SessionID { get; set; } = null; // pwede null sa registration
+        public int OTP { get; set; } = 0;             // default 0
+
         [Required(ErrorMessage = "Firstname is required")]
         public string FirstName { get; set; }
 

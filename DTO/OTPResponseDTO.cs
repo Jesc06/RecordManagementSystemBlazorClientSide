@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace RecordManagementSystemClientSide.DTO
 {
-    public class VerifyOtpDTO
+    public class OTPResponseDTO
     {
-        public string sessionId { get; set; }
-        public int OTP { get; set; }
+           public string SessionId { get; set; }
+           public DateTime ExpiryTime { get; set; }
     }
 }

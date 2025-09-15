@@ -63,6 +63,10 @@
               "target": "Package",
               "version": "[9.0.5, )"
             },
+            "Microsoft.AspNetCore.WebUtilities": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[9.0.8, )"

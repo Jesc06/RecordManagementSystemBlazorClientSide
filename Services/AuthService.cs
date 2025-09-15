@@ -6,6 +6,7 @@ using RecordManagementSystemClientSide.DTO;
 using System.Net.Http.Json;
 using Microsoft.JSInterop;
 using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 
 namespace RecordManagementSystemClientSide.Services
@@ -13,19 +14,16 @@ namespace RecordManagementSystemClientSide.Services
     public class AuthService
     {
         private readonly HttpClient _httpClient;
-        private readonly IHttpClientFactory _httpClientFactory;
         private readonly IJSRuntime _jsRuntime;
-        public AuthService(HttpClient httpClient, IHttpClientFactory httpClientFactory, IJSRuntime jsRuntime)
+        public AuthService(HttpClient httpClient, IJSRuntime jsRuntime)
         {
             _httpClient = httpClient;
-            _httpClientFactory = httpClientFactory;
             _jsRuntime = jsRuntime;
         }
 
         public async Task<string> login(LoginDTO loginDto)
         {
-            var http = _httpClientFactory.CreateClient("API");
-            var response = await http.PostAsJsonAsync("api/LoginRegister/Login", loginDto);
+            var response = await _httpClient.PostAsJsonAsync("api/LoginRegister/Login", loginDto);
 
             if (response.IsSuccessStatusCode)
             {
@@ -42,27 +40,20 @@ namespace RecordManagementSystemClientSide.Services
         }
 
 
-        public async Task<bool> RegisterAccount(RegisterAccountDTO registerAccountDTO)
+        public async Task<(string sessionId, DateTime expiry)> RegisterAccount(RegisterAccountDTO registerAccountDTO)
         {
-            var http = _httpClientFactory.CreateClient("API");
-            var response = await http.PostAsJsonAsync("api/LoginRegister/AddStudentAccount", registerAccountDTO);
-            if (response.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            return false;
+            var response = await _httpClient.PostAsJsonAsync("api/LoginRegister/AddStudentAccount", registerAccountDTO);
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<OTPResponseDTO>();
+            return (result.SessionId, result.ExpiryTime);
+
         }
 
-
-        public async Task<bool> OTPVerification(VerifyOtpDTO verifyOtpDTO)
+        public async Task<bool> VerifyOTP(VerifyOtpDTO verifyOtpDTO)
         {
-            var http = _httpClientFactory.CreateClient("API");
-            var response = await http.PostAsJsonAsync("api/LoginRegister/VerifyOTP", verifyOtpDTO);
-            if (response.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            return false;
+            var response = await _httpClient.PostAsJsonAsync("api/LoginRegister/VerifyOTP", verifyOtpDTO);
+            return response.IsSuccessStatusCode;
         }
 
 
@@ -75,8 +66,7 @@ namespace RecordManagementSystemClientSide.Services
                 var refreshToken = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", "refreshToken");
                 if (string.IsNullOrWhiteSpace(refreshToken)) return;
 
-                var http = _httpClientFactory.CreateClient("API");
-                var refreshResponse = await http.PostAsJsonAsync("api/LoginRegister/Refresh Token", new { RefreshToken = refreshToken });
+                var refreshResponse = await _httpClient.PostAsJsonAsync("api/LoginRegister/Refresh Token", new { RefreshToken = refreshToken });
 
                 if (refreshResponse.IsSuccessStatusCode)
                 {
@@ -97,8 +87,7 @@ namespace RecordManagementSystemClientSide.Services
 
         public async Task Logout()
         {
-            var http = _httpClientFactory.CreateClient("API");
-            await http.PostAsync("api/Account/Logout", null);
+            await _httpClient.PostAsync("api/Account/Logout", null);
             await _jsRuntime.InvokeVoidAsync("localStorage.removeItem", "authToken");
         }
         
