@@ -1,0 +1,156 @@
+@page "/register"
+@layout AccountLayout
+@inject AuthService _authService
+@inject NavigationManager nav
+
+<link rel="stylesheet" href="/css/Register.css" />
+
+@if (isLoading)
+{
+    <div class="loading-overlay">
+        <div class="loading-content">
+            <span class="spinner"></span>
+            <span class="loading-text">Signing up...</span>
+        </div>
+    </div>
+}
+
+<EditForm Model="@registerAccountDTO" OnValidSubmit="SuccessfullyRegistered">
+    <DataAnnotationsValidator/>
+
+    <div class="container">
+    <div class="form-card">
+        <h2>Create Student Account</h2>
+        <p class="subtitle">Fill in the details to register</p>
+
+        <div class="form-grid">
+            <div class="input-group">
+                 <InputText placeholder="Firstname" @bind-Value="@registerAccountDTO.FirstName"/>
+                 <ValidationMessage For="@(() => registerAccountDTO.FirstName)" class="validation"/>
+            </div>
+            <div class="input-group">
+                 <InputText placeholder="Middlename" @bind-Value="@registerAccountDTO.Middlename"/>
+                 <ValidationMessage For="@(() => registerAccountDTO.Middlename)" class="validation"/>
+            </div>
+            <div class="input-group">
+                <InputText placeholder="Lastname" @bind-Value="@registerAccountDTO.LastName"/>
+                <ValidationMessage For="@(() => registerAccountDTO.LastName)" class="validation"/>
+            </div>
+
+            <div class="input-group">
+                <InputSelect @bind-Value="@registerAccountDTO.Gender">
+                    <option value="">Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>LGBTQ</option>
+                </InputSelect>
+                 <ValidationMessage For="@(() => registerAccountDTO.Gender)" class="validation"/>
+            </div>
+
+            <div class="input-group">
+                <InputText min="1950" max="2025" placeholder="Year of Birth" @bind-Value="@registerAccountDTO.YearOfBirth"/>
+                <ValidationMessage For="@(() => registerAccountDTO.YearOfBirth)" class="validation"/>
+            </div>
+            <div class="input-group">
+                <InputSelect @bind-Value="@registerAccountDTO.MonthOfBirth">
+                    <option value="">Month of Birth</option>
+                    @for (int m = 1; m <= 12; m++)
+                    {
+                        <option value="@m">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(m)</option>
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => registerAccountDTO.MonthOfBirth)" class="validation"/>
+            </div>
+            <div class="input-group">
+                <InputText min="1" max="31" placeholder="Date of Birth" @bind-Value="@registerAccountDTO.DateOfBirth"/>
+                <ValidationMessage For="@(() => registerAccountDTO.DateOfBirth)" class="validation"/>
+            </div>
+
+            <div class="input-group">
+                <InputText placeholder="Mobile Number" @bind-Value="@registerAccountDTO.MobileNumber"/>
+                <ValidationMessage For="@(() => registerAccountDTO.MobileNumber)" class="validation"/>
+            </div>
+            <div class="input-group full-width">
+                <InputText placeholder="Home Address" @bind-Value="@registerAccountDTO.HomeAddress"/>
+                <ValidationMessage For="@(() => registerAccountDTO.HomeAddress)" class="validation"/>
+            </div>
+
+            <div class="input-group">
+                <InputSelect @bind-Value="@registerAccountDTO.Program">
+                    <option value="">Program</option>
+                    <option>BSIT</option>
+                    <option>BSED</option>
+                    <option>BSTM</option>
+                    <option>BSCPE</option>
+                    <option>BSCRIM</option>
+                </InputSelect>
+                <ValidationMessage For="@(() => registerAccountDTO.Program)" class="validation"/>
+            </div>
+
+            <div class="input-group">
+                <InputSelect @bind-Value="@registerAccountDTO.YearLevel">
+                    <option value="">Year Level</option>
+                    <option value="1">First Year</option>
+                    <option value="2">Second Year</option>
+                    <option value="3">Third Year</option>
+                    <option value="4">Fourth Year</option>
+                </InputSelect>
+                <ValidationMessage For="@(() => registerAccountDTO.YearLevel)" class="validation"/>
+            </div>
+
+            <div class="input-group full-width">
+                 <InputText placeholder="Student ID" @bind-Value="@registerAccountDTO.StudentID"/>
+                 <ValidationMessage For="@(() => registerAccountDTO.StudentID)" class="validation"/>
+            </div>
+            <div class="input-group full-width">
+                <InputText placeholder="Email" @bind-Value="@registerAccountDTO.Email"/>
+                <ValidationMessage For="@(() => registerAccountDTO.Email)" class="validation"/>
+            </div>
+            <div class="input-group full-width">
+                <InputText placeholder="Password" @bind-Value="@registerAccountDTO.Password"/>
+                <ValidationMessage For="@(() => registerAccountDTO.Password)" class="validation"/>
+            </div>
+        </div>
+
+        <button class="btn-submit" disabled="@isLoading">Sign up</button>
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="validation-message">@errorMessage</div>
+        }
+
+        <p class="subtitle2">Already have an account?</p>
+        <a href="/">Sign in</a>
+    </div>
+</div>
+
+
+</EditForm>
+
+
+@code {
+    RegisterAccountDTO registerAccountDTO = new();
+    bool isLoading;
+    string errorMessage;
+
+    public async Task SuccessfullyRegistered()
+    {
+        try
+        {
+            isLoading = true;
+            errorMessage = string.Empty;
+
+            var result = await _authService.RegisterAccount(registerAccountDTO);
+            nav.NavigateTo($"/OTPVerification?sessionId={result.sessionId}"); // pass sessionId to OTPVerification page
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Unable to register. Please check your inputs or try again later.";
+            Console.Error.WriteLine(ex);
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

@@ -31,20 +31,20 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/escar/Music/RecordManagementSystemClientSide/Pages/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+[C:/Users/escar/Music/RecordManagementSystemClientSide/Pages/Account/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/escar/Music/RecordManagementSystemClientSide/Pages/Account/OTPVerification.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxPVFBWZXJpZmljYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/escar/Music/RecordManagementSystemClientSide/Pages/Account/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/escar/Music/RecordManagementSystemClientSide/Pages/Mali.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFsaS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/escar/Music/RecordManagementSystemClientSide/Pages/OTPVerification.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT1RQVmVyaWZpY2F0aW9uLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/escar/Music/RecordManagementSystemClientSide/Pages/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/escar/Music/RecordManagementSystemClientSide/Pages/Success.razor]

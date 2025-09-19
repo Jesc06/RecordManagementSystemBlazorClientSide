@@ -81,7 +81,6 @@ namespace RecordManagementSystemClientSide.Services
                 {
                     await Logout();
                 }
-
             }
         }
 

@@ -1,5 +1,4 @@
 body {
-
     margin: 0;
     padding: 0;
 }
@@ -10,7 +9,6 @@ body {
     align-items: center;
     padding: 32px 8px;
     min-height: 100vh;
-
 }
 
 .form-card {
@@ -25,6 +23,7 @@ body {
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 0 auto;
+   
 }
 
 .form-card:hover {
@@ -99,6 +98,9 @@ body {
 .input-group {
     position: relative;
     width: 100%;
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    gap: 4px; /* space between input and validation */
 }
 
 .input-group input,
@@ -106,7 +108,7 @@ body {
     width: 100%;
     padding: 14px 14px;
     border: 1.5px solid #e0e0e0;
-    border-radius: 10px;
+    border-radius: 10px !important;
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
     box-sizing: border-box;
@@ -114,6 +116,19 @@ body {
     box-shadow: 0 2px 8px rgba(44,62,80,0.05);
 }
 
+/* Override any framework styles that might remove border radius */
+.input-group input[type="text"],
+.input-group input[type="email"], 
+.input-group input[type="password"],
+.input-group select,
+.input-group input:invalid,
+.input-group select:invalid,
+.input-group input:valid,
+.input-group select:valid {
+    border-radius: 10px !important;
+}
+
+/* focus effect */
 .input-group input:focus,
 .input-group select:focus {
     border-color: #4caf50;
@@ -128,6 +143,24 @@ body {
     opacity: 1;
 }
 
+/* kapag may validation error - keep border radius */
+.input-group input.input-validation-error,
+.input-group select.input-validation-error,
+.input-group input.validation-error,
+.input-group select.validation-error,
+.input-group.validation-error input,
+.input-group.validation-error select {
+    border-radius: 10px !important;
+    border-color: #eb5432 !important;
+    box-shadow: 0 0 8px rgba(235,84,50,0.25);
+}
+
+/* Ensure border radius is always maintained */
+.input-group input,
+.input-group select {
+    border-radius: 10px !important;
+}
+
 .full-width {
     grid-column: 1 / -1;
 }
@@ -139,6 +172,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 input[type=number] {
+    appearance: textfield;
     -moz-appearance: textfield;
 }
 
@@ -175,7 +209,33 @@ input[type=number] {
     transform: translateY(-2px) scale(1.03);
 }
 
-/* Validation message */
+/* Validation message (per input) */
+.validation {
+    font-size: 13px;
+    color: #eb5432;
+    text-align: left;
+    min-height: 16px; /* reserve space para di tumalon layout */
+    margin-top: 2px;
+    display: block;
+}
+
+/* Ensure validation messages don't affect input styling */
+.input-group:has(.validation:not(:empty)) input,
+.input-group:has(.validation:not(:empty)) select,
+.input-group .validation:not(:empty) + input,
+.input-group .validation:not(:empty) + select {
+    border-radius: 10px !important;
+}
+
+/* Additional safety for all input states */
+.form-grid .input-group input,
+.form-grid .input-group select,
+.input-group input[class*="validation"],
+.input-group select[class*="validation"] {
+    border-radius: 10px !important;
+}
+
+/* Global error message (top-level) */
 .validation-message {
     color: #eb5432;
     margin-top: 8px;
