@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RYu6V7WyLZA=",
+  "dgSpecHash": "KAg6/J+FfL4=",
   "success": true,
   "projectFilePath": "C:\\Users\\escar\\Music\\RecordManagementSystemClientSide\\RecordManagementSystemClientSide.csproj",
   "expectedPackageFiles": [
@@ -37,11 +37,11 @@
     "C:\\Users\\escar\\.nuget\\packages\\microsoft.jsinterop\\9.0.8\\microsoft.jsinterop.9.0.8.nupkg.sha512",
     "C:\\Users\\escar\\.nuget\\packages\\microsoft.jsinterop.webassembly\\9.0.8\\microsoft.jsinterop.webassembly.9.0.8.nupkg.sha512",
     "C:\\Users\\escar\\.nuget\\packages\\microsoft.net.http.headers\\9.0.9\\microsoft.net.http.headers.9.0.9.nupkg.sha512",
-    "C:\\Users\\escar\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.5\\microsoft.net.illink.tasks.9.0.5.nupkg.sha512",
-    "C:\\Users\\escar\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.5\\microsoft.net.sdk.webassembly.pack.9.0.5.nupkg.sha512",
+    "C:\\Users\\escar\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.9\\microsoft.net.illink.tasks.9.0.9.nupkg.sha512",
+    "C:\\Users\\escar\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.9\\microsoft.net.sdk.webassembly.pack.9.0.9.nupkg.sha512",
     "C:\\Users\\escar\\.nuget\\packages\\mudblazor\\8.12.0\\mudblazor.8.12.0.nupkg.sha512",
     "C:\\Users\\escar\\.nuget\\packages\\system.net.http.json\\9.0.8\\system.net.http.json.9.0.8.nupkg.sha512",
-    "C:\\Users\\escar\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\9.0.5\\microsoft.netcore.app.runtime.mono.browser-wasm.9.0.5.nupkg.sha512"
+    "C:\\Users\\escar\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\9.0.9\\microsoft.netcore.app.runtime.mono.browser-wasm.9.0.9.nupkg.sha512"
   ],
   "logs": []
 }

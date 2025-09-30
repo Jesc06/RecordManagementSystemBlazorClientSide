@@ -38,7 +38,7 @@ namespace RecordManagementSystemClientSide.Services
             }
             return null;
         }
-
+    
 
         public async Task<(string sessionId, DateTime expiry)> RegisterAccount(RegisterAccountDTO registerAccountDTO)
         {

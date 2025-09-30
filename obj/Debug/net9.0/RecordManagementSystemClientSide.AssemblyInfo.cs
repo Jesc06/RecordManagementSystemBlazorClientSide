@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecordManagementSystemClientSide")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87c2994d6503b7abeafb18e7eefd71c805ebf88b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8edd9d64fefceb4c9627ec38c35e896d745b9ded")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecordManagementSystemClientSide")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecordManagementSystemClientSide")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

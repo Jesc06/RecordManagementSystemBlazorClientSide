@@ -101,6 +101,7 @@ body {
     display: flex;
     flex-direction: column; /* stack vertically */
     gap: 4px; /* space between input and validation */
+    min-height: 60px; /* Reserve space para hindi mag-shift ang layout */
 }
 
 .input-group input,
@@ -124,7 +125,15 @@ body {
 .input-group input:invalid,
 .input-group select:invalid,
 .input-group input:valid,
-.input-group select:valid {
+.input-group select:valid,
+.input-group input.input-validation-error,
+.input-group select.input-validation-error,
+.input-group input.validation-error,
+.input-group select.validation-error,
+.input-group input.modified,
+.input-group select.modified,
+.input-group input.invalid,
+.input-group select.invalid {
     border-radius: 10px !important;
 }
 
@@ -215,8 +224,10 @@ input[type=number] {
     color: #eb5432;
     text-align: left;
     min-height: 16px; /* reserve space para di tumalon layout */
+    height: 16px; /* Fixed height para hindi mag-shift */
     margin-top: 2px;
     display: block;
+    line-height: 1.2;
 }
 
 /* Ensure validation messages don't affect input styling */
@@ -300,4 +311,24 @@ input[type=number] {
     0% { opacity: 0.6; }
     50% { opacity: 1; }
     100% { opacity: 0.6; }
+}
+
+/* Ultimate border radius protection - lahat ng possible states */
+.form-grid input,
+.form-grid select,
+.input-group input,
+.input-group select,
+input.blazor-input,
+select.blazor-input,
+input[data-val="true"],
+select[data-val="true"] {
+    border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+}
+
+/* Final override para sa lahat ng validation states */
+.container input,
+.container select {
+    border-radius: 10px !important;
 }
